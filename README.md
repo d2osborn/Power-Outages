@@ -43,7 +43,7 @@ The dataset, outage, contains 1534 rows, each being a unique record of a major p
 # Step 2: Data Cleaning and Exploratory Data Analysis
 ## Data Cleaning
 
-When loading the outage dataframe from an Excel file, I encountered two main issues. First, the file included a brief overview spanning four rows and the first column, which I removed to focus on the actual data and columns. Second, the column names were initially 'Unnamed: #', with the actual column names located below the first four rows. To fix this, I sliced the dataframe and reassigned the column names to the values in the first row. After updating the dataframe, it was now ready for analysis.
+When loading the outage dataframe from an Excel file, I encountered two main issues. First, the file included a brief overview spanning four rows and the first column, which I removed to focus on the actual data and columns. Second, the column names were initially 'Unnamed: #', with the actual column names located below the first four rows. To fix this, I sliced the dataframe and reassigned the column names to the values in the first row. This left me with a dataframe that was ready to be explored.
 
 I combined the columns 'OUTAGE.START.DATE' and 'OUTAGE.START.TIME' into one 'OUTAGE.START' timestamp column, and did the same to get a 'OUTAGE.RESTORATION' timestamp column. I did this to reduce the number of columns and make the date and time information easier to manage as a single entity. As a result I dropped the original DATE and TIME columns for both START and RESTORATION.
 
