@@ -55,8 +55,15 @@ The next step I took was combining the columns `OUTAGE.START.DATE` and `OUTAGE.S
 
 Then, I changed the data types of each column to ensure that each column has its correct respective null type and data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types.
 
-Below is the head of the cleaned `power_outage` dataframe.
+Below is the head of the cleaned `power_outage` dataframe with relevant columns.
 
+|   YEAR | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION | DEMAND.LOSS.MW   | CUSTOMERS.AFFECTED   |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   PCT_WATER_TOT |
+|-------:|:--------------|:--------------|:-------------------|:--------------------|:---------------------|------------------:|:-----------------|:---------------------|------------:|------------:|------------:|--------------:|----------------:|
+|   2011 | MN            | MRO           | East North Central | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 | <NA>             | 70000                |     2332915 |     2114774 |     2113291 |       6562520 |         8.40733 |
+|   2014 | MN            | MRO           | East North Central | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 | <NA>             | <NA>                 |     1586986 |     1807756 |     1887927 |       5284231 |         8.40733 |
+|   2010 | MN            | MRO           | East North Central | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 | <NA>             | 70000                |     1467293 |     1801683 |     1951295 |       5222116 |         8.40733 |
+|   2012 | MN            | MRO           | East North Central | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 | <NA>             | 68200                |     1851519 |     1941174 |     1993026 |       5787064 |         8.40733 |
+|   2015 | MN            | MRO           | East North Central | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 | 250              | 250000               |     2028875 |     2161612 |     1777937 |       5970339 |         8.40733 |
 
 
 <iframe
