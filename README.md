@@ -18,6 +18,8 @@ The dataset, outage, contains 1534 rows, each being a unique record of a major p
 
 - `U.S._STATE`: Represents all the states in the continental U.S.
 
+- `POSTAL.CODE`: Represents the postal code of the U.S. states
+
 - `NERC.REGION`: The North American Electric Reliability Corporation (NERC) regions involved in the outage event
 
 - `CLIMATE.REGION`: U.S. Climate regions as specified by National Centers for Environmental Information (nine climatically consistent regions in continental U.S.A.)
