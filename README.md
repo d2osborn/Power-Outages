@@ -56,19 +56,6 @@ The next step I took was combining the columns `OUTAGE.START.DATE` and `OUTAGE.S
 Then, I changed the data types of each column to ensure that each column has its correct respective null type and data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
-
-<style>
-  .scrollable-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  table {
-    width: 100%;
-  }
-</style>
-
-<div class="scrollable-table">
   
 |   YEAR | POSTAL.CODE   | CLIMATE.REGION     | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION | DEMAND.LOSS.MW   | CUSTOMERS.AFFECTED   |   TOTAL.SALES |
 |-------:|:--------------|:-------------------|:--------------------|:---------------------|------------------:|:-----------------|:---------------------|--------------:|
@@ -77,8 +64,6 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
 |   2010 | MN            | East North Central | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 | <NA>             | 70000                |       5222116 |
 |   2012 | MN            | East North Central | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 | <NA>             | 68200                |       5787064 |
 |   2015 | MN            | East North Central | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 | 250              | 250000               |       5970339 |
-
-</div>
 
 <iframe
   src="assets/total-sales-per-year.html"
