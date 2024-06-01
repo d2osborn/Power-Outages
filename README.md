@@ -39,3 +39,12 @@ The dataset, outage, contains 1534 rows, each being a unique record of a major p
 - `PC.REALGSP.STATE`: Per capita real gross state product (GSP) in the U.S. state (measured in 2009 chained U.S. dollars)
 
 - `POPULATION`: Population in the U.S. state in a year
+
+# Step 2: Data Cleaning and Exploratory Data Analysis
+## Data Cleaning
+
+When loading the outage dataframe from an Excel file, I encountered two main issues. First, the file included a brief overview spanning four rows and the first column, which I removed to focus on the actual data and columns. Second, the column names were initially 'Unnamed: #', with the actual column names located below the first four rows. To fix this, I sliced the dataframe and reassigned the column names to the values in the first row. After updating the dataframe, it was now ready for analysis.
+
+I combined the columns 'OUTAGE.START.DATE' and 'OUTAGE.START.TIME' into one 'OUTAGE.START' timestamp column, and did the same to get a 'OUTAGE.RESTORATION' timestamp column. I did this to reduce the number of columns and make the date and time information easier to manage as a single entity. As a result I dropped the original DATE and TIME columns for both START and RESTORATION.
+
+I changed the data types of each column to ensure that each column has its correct respective null type and data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types.
