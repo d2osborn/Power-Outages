@@ -12,8 +12,6 @@ The central question I am interested in is: **What are the characteristics of ma
 
 The dataset, outage, contains 1534 rows, each being a unique record of a major power outage, with 56 columns. Here's a brief description of some of the columns that are relevant to my analysis:
 
-- `gameid`: This column represents a unique identifier for each individual match played. It allows us to distinguish between different matches in the dataset.
-
 - `YEAR`: Indicates the year when the outage event occurred
 
 - `U.S._STATE`: Represents all the states in the continental U.S.
@@ -24,21 +22,29 @@ The dataset, outage, contains 1534 rows, each being a unique record of a major p
 
 - `CLIMATE.REGION`: U.S. Climate regions as specified by National Centers for Environmental Information (nine climatically consistent regions in continental U.S.A.)
 
+- `OUTAGE.START`: This variable indicates the day of the year and the time of the day when the outage event started (as reported by the corresponding Utility in the region)
+
+- `OUTAGE.RESTORATION`: This variable indicates the day of the year and the time of the day when power was restored to all the customers (as reported by the corresponding Utility in the region)
+
 - `OUTAGE.DURATION`: Duration of outage events (in minutes)
 
 - `DEMAND.LOSS.MW`: Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported]
 
 - `CUSTOMERS.AFFECTED`: Number of customers affected by the power outage event
 
-- `RES.PRICE`: Monthly electricity price in the residential sector (cents/kilowatt-hour)
+- `RES.SALES`: 	Electricity consumption in the residential sector (megawatt-hour)
 
-- `COM.PRICE`: Monthly electricity price in the commercial sector (cents/kilowatt-hour)
+- `COM.SALES`: 	Electricity consumption in the commercial sector (megawatt-hour)
+
+- `IND.SALES`: Electricity consumption in the industrial sector (megawatt-hour)
 
 - `TOTAL.SALES`: Total electricity consumption in the U.S. state (megawatt-hour)
 
 - `PC.REALGSP.STATE`: Per capita real gross state product (GSP) in the U.S. state (measured in 2009 chained U.S. dollars)
 
 - `POPULATION`: Population in the U.S. state in a year
+
+- `PCT_WATER_TOT`: Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. (in %)
 
 # Step 2: Data Cleaning and Exploratory Data Analysis
 ## Data Cleaning
@@ -48,6 +54,10 @@ When loading the outage dataframe from an Excel file, I encountered two main iss
 The next step I took was combining the columns `OUTAGE.START.DATE` and `OUTAGE.START.TIME` into one `OUTAGE.START` timestamp column, and the same for `OUTAGE.RESTORATION`. I did this to reduce the number of columns and make the date and time information easier to manage as a single entity. As a result I dropped the original `DATE` and `TIME` columns for both `START` and `RESTORATION`.
 
 Then, I changed the data types of each column to ensure that each column has its correct respective null type and data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types.
+
+Below is the head of the cleaned `power_outage` dataframe.
+
+
 
 <iframe
   src="assets/total-sales-per-year.html"
