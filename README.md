@@ -53,7 +53,9 @@ When loading the outage dataframe from an Excel file, I encountered two main iss
 
 The next step I took was combining the columns `OUTAGE.START.DATE` and `OUTAGE.START.TIME` into one `OUTAGE.START` timestamp column, and the same for `OUTAGE.RESTORATION`. I did this to reduce the number of columns and make the date and time information easier to manage as a single entity. As a result I dropped the original `DATE` and `TIME` columns for both `START` and `RESTORATION`.
 
-Then, I changed the data types of each column to ensure that each column has its correct respective null data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types.
+I then replaced every 0 value in the columns `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` as having a value of 0 for any of these columns are not characteristics of a major power outage. Inferring that 0 values are placeholders for missing values.
+
+I also changed the data types of each column to ensure that each column has its correct respective data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types. To prevent errors from inconsistent null types after changing the data types of the columns, I replaced all null values with NumPy's NaN for consistency.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
