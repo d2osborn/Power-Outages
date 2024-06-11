@@ -53,6 +53,8 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
 |   2012 | MN            | East North Central | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |              nan |                68200 |   5.78706e+06 |
 |   2015 | MN            | East North Central | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |              250 |               250000 |   5.97034e+06 |
 
+# Exploratory Data Analysis
+## Univariate Analysis
 <iframe
   src="assets/total-sales-per-year.html"
   width="800"
@@ -65,3 +67,8 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   height="600"
   frameborder="0"
 ></iframe>
+
+## Bivariate Analysis
+
+
+## Interesting Aggregates
