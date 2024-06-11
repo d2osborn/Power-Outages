@@ -15,22 +15,21 @@ The dataset, outage, contains 1534 rows, each being a unique record of a major p
 | Column | Description |
 |--------|-------------|
 | `YEAR` | Indicates the year when the outage event occurred |
+| `MONTH` | Indicates the month when the outage event occurred |
 | `U.S._STATE` | Represents all the states in the continental U.S. |
 | `POSTAL.CODE` | Represents the postal code of the U.S. states |
 | `NERC.REGION` | The North American Electric Reliability Corporation (NERC) regions involved in the outage event |
 | `CLIMATE.REGION` | U.S. Climate regions as specified by National Centers for Environmental Information (nine climatically consistent regions in continental U.S.A.) |
-| `OUTAGE.START` | This variable indicates the day of the year and the time of the day when the outage event started (as reported by the corresponding Utility in the region) |
-| `OUTAGE.RESTORATION` | This variable indicates the day of the year and the time of the day when power was restored to all the customers (as reported by the corresponding Utility in the region) |
+| `OUTAGE.START.DATE` | This variable indicates the day of the year when the outage event started (as reported by the corresponding Utility in the region) |
+| `OUTAGE.START.TIME` | This variable indicates the time of the day when the outage event started (as reported by the corresponding Utility in the region) |
+| `OUTAGE.RESTORATION.DATE` | This variable indicates the day of the year when power was restored to all the customers (as reported by the corresponding Utility in the region) |
+| `OUTAGE.RESTORATION.TIME` | This variable indicates the time of the day when power was restored to all the customers (as reported by the corresponding Utility in the region) |
 | `OUTAGE.DURATION` | Duration of outage events (in minutes) |
 | `DEMAND.LOSS.MW` | Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
 | `CUSTOMERS.AFFECTED` | Number of customers affected by the power outage event |
-| `RES.SALES` | Electricity consumption in the residential sector (megawatt-hour) |
-| `COM.SALES` | Electricity consumption in the commercial sector (megawatt-hour) |
-| `IND.SALES` | Electricity consumption in the industrial sector (megawatt-hour) |
 | `TOTAL.SALES` | Total electricity consumption in the U.S. state (megawatt-hour) |
 | `PC.REALGSP.STATE` | Per capita real gross state product (GSP) in the U.S. state (measured in 2009 chained U.S. dollars) |
 | `POPULATION` | Population in the U.S. state in a year |
-| `PCT_WATER_TOT` | Percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. (in %) |
 
 # Step 2: Data Cleaning and Exploratory Data Analysis
 ## Data Cleaning
