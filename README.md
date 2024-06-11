@@ -47,13 +47,13 @@ I also added a new column `IS_DARK`, which represents whether or not the outage 
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
-|   YEAR | MONTH   | OUTAGE.START        | IS_DARK   | U.S._STATE   | CLIMATE.REGION     | OUTAGE.DURATION | DEMAND.LOSS.MW | CUSTOMERS.AFFECTED | TOTAL.SALES | POPULATION |
-|-------:|--------:|:--------------------|:----------|:-------------|:-------------------|------------------|---------------:|--------------------:|------------:|-----------:|
-|   2011 |       7 | 2011-07-01 17:00:00 | False     | Minnesota    | East North Central |             3060 |            nan |               70000 | 6.56252e+06 |    5348119 |
-|   2014 |       5 | 2014-05-11 18:38:00 | False     | Minnesota    | East North Central |                1 |            nan |                 nan | 5.28423e+06 |    5457125 |
-|   2010 |      10 | 2010-10-26 20:00:00 | True      | Minnesota    | East North Central |             3000 |            nan |               70000 | 5.22212e+06 |    5310903 |
-|   2012 |       6 | 2012-06-19 04:30:00 | True      | Minnesota    | East North Central |             2550 |            nan |               68200 | 5.78706e+06 |    5380443 |
-|   2015 |       7 | 2015-07-18 02:00:00 | True      | Minnesota    | East North Central |             1740 |            250 |              250000 | 5.97034e+06 |    5489594 |
+|   YEAR |   MONTH | OUTAGE.START        | OUTAGE.RESTORATION   | IS_DARK   | U.S._STATE   | CLIMATE.REGION     |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   TOTAL.SALES |   POPULATION |
+|-------:|--------:|:--------------------|:---------------------|:----------|:-------------|:-------------------|------------------:|-----------------:|---------------------:|--------------:|-------------:|
+|   2011 |       7 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  | False     | Minnesota    | East North Central |              3060 |              nan |                70000 |   6.56252e+06 |      5348119 |
+|   2014 |       5 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  | False     | Minnesota    | East North Central |                 1 |              nan |                  nan |   5.28423e+06 |      5457125 |
+|   2010 |      10 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  | True      | Minnesota    | East North Central |              3000 |              nan |                70000 |   5.22212e+06 |      5310903 |
+|   2012 |       6 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  | True      | Minnesota    | East North Central |              2550 |              nan |                68200 |   5.78706e+06 |      5380443 |
+|   2015 |       7 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  | True      | Minnesota    | East North Central |              1740 |              250 |               250000 |   5.97034e+06 |      5489594 |
 
 # Exploratory Data Analysis
 ## Univariate Analysis
