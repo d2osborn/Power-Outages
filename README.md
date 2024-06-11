@@ -57,6 +57,12 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
 # Exploratory Data Analysis
 ## Univariate Analysis
 <iframe
+  src="assets/outages-during-day-and-night.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+<iframe
   src="assets/total-sales-per-year.html"
   width="800"
   height="600"
