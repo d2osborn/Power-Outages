@@ -41,17 +41,19 @@ The next step I took was combining the columns `OUTAGE.START.DATE` and `OUTAGE.S
 
 I then replaced every 0 value in the columns `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` as having a value of 0 for any of these columns are not characteristics of a major power outage. Inferring that 0 values are placeholders for missing values.
 
-I also changed the data types of each column to ensure that each column has its correct respective data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types. To prevent errors from inconsistent null types after changing the data types of the columns, I replaced all null values with NumPy's NaN for consistency.
+I then changed the data types of each column to ensure that each column has its correct respective data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types. To prevent errors from inconsistent null types after changing the data types of the columns, I replaced all null values with NumPy's NaN for consistency.
+
+I also added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime or nighttime. This column allows me to categorize outages to understand patterns such as when outages are more likely to occur.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
-|   YEAR | POSTAL.CODE   | CLIMATE.REGION     | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   TOTAL.SALES |
-|-------:|:--------------|:-------------------|:--------------------|:---------------------|------------------:|-----------------:|---------------------:|--------------:|
-|   2011 | MN            | East North Central | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 |              nan |                70000 |   6.56252e+06 |
-|   2014 | MN            | East North Central | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |              nan |                  nan |   5.28423e+06 |
-|   2010 | MN            | East North Central | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |              nan |                70000 |   5.22212e+06 |
-|   2012 | MN            | East North Central | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |              nan |                68200 |   5.78706e+06 |
-|   2015 | MN            | East North Central | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |              250 |               250000 |   5.97034e+06 |
+|   YEAR | MONTH   | OUTAGE.START        | IS_DARK   | U.S._STATE   | CLIMATE.REGION     | OUTAGE.DURATION | DEMAND.LOSS.MW | CUSTOMERS.AFFECTED | TOTAL.SALES | POPULATION |
+|-------:|--------:|:--------------------|:----------|:-------------|:-------------------|------------------|---------------:|--------------------:|------------:|-----------:|
+|   2011 |       7 | 2011-07-01 17:00:00 | False     | Minnesota    | East North Central |             3060 |            nan |               70000 | 6.56252e+06 |    5348119 |
+|   2014 |       5 | 2014-05-11 18:38:00 | False     | Minnesota    | East North Central |                1 |            nan |                 nan | 5.28423e+06 |    5457125 |
+|   2010 |      10 | 2010-10-26 20:00:00 | True      | Minnesota    | East North Central |             3000 |            nan |               70000 | 5.22212e+06 |    5310903 |
+|   2012 |       6 | 2012-06-19 04:30:00 | True      | Minnesota    | East North Central |             2550 |            nan |               68200 | 5.78706e+06 |    5380443 |
+|   2015 |       7 | 2015-07-18 02:00:00 | True      | Minnesota    | East North Central |             1740 |            250 |              250000 | 5.97034e+06 |    5489594 |
 
 # Exploratory Data Analysis
 ## Univariate Analysis
