@@ -60,8 +60,6 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   width="800"
   height="600"
   frameborder="0"
-></iframe>
-<iframe
   src="assets/average-energy-consumption-per-state.html"
   width="800"
   height="600"
