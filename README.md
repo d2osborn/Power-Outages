@@ -81,6 +81,14 @@ The bar plot below shows the count of power outage events for each month:
   frameborder="0"></iframe>
 The plot reveals that power outages are more frequent in the summer months, particularly in June and July, which may be due to increased electricity demand from air conditioning and summer storms. In contrast, the lowest number of outages occurs during Spring and Fall, suggesting lower overall demand and fewer severe weather events during this time.
 
+The choropleth map below displays the total electricity sales per state based on the dataset provided.
+<iframe
+  src="assets/consumption-per-state.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+From the map, we observe significant variations in electricity sales across different states. States such as California (CA), Texas (TX), and New York (NY) exhibit higher electricity sales, represented by darker shades, while others have comparatively lower sales. This visualization highlights the disparities in electricity usage across the United States, influenced by factors such as population density, industrial activity, and climate.
+
 ## Bivariate Analysis
 
 ## Interesting Aggregates
