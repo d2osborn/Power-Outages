@@ -92,3 +92,19 @@ From the map, we observe significant variations in median outage duration across
 ## Bivariate Analysis
 
 ## Interesting Aggregates
+
+# Assessment of Missingness
+
+## NMAR Analysis
+
+## Missingness Dependency
+
+# Hypothesis Testing
+
+# Framing a Prediction Problem
+
+# Baseline Model
+
+# Final Model
+
+# Fairness Analysis
