@@ -75,6 +75,14 @@ The histogram shows that total electricity sales are right-skewed, indicating th
 
 ## Bivariate Analysis
 
+The bar plot below shows the median outage duration for each month:
+<iframe
+  src="assets/median-outage-per-month.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+The plot reveals that power outages are more severe in the Winter due to winter storms and accessibility issues (the storms make it difficult for repair crews to access damaged areas), but also particularly the highest in August and September. This could be attributed to extreme weather events such as hurricanes and heatwaves, which are common during these months and can cause significant damage to the power grid, and accumulated wear and tear on the grid and resources from earlier summer events might lead to longer outages. In contrast, the lowest median outage duration is during the Spring and Summer, suggesting that outages are dealt with faster due to better weather conditions and fewer severe weather disruptions.
+
 The bar plot below shows the count of power outage events for each month:
 <iframe
   src="assets/outages-per-month.html"
