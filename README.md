@@ -99,6 +99,14 @@ The choropleth map below displays the median outage duration per state based on 
   frameborder="0"></iframe>
 From the map, we observe significant variations in median outage duration across different states. States such as Michigan (MI), New York (NY), and West Virginia (WV) exhibit longer median outage durations, represented by darker shades, indicating that these states experience more prolonged outages on average. This visualization highlights the disparities in power outage experiences across the United States, suggesting areas where infrastructure improvements may be most needed to reduce the impact of power outages.
 
+The scatter plot below displays the relationship between `TOTAL.SALES` and `CUSTOMERS.AFFECTED`.
+<iframe
+  src="assets/sales-vs-customers.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+The plot reveals that there is a weak positive relationship between Total Sales and Customers Affected, suggesting that while there is a slight tendency for more customers to be affected by power outages as total sales increase, the relationship is not strong. Other factors likely play a more significant role in determining the number of customers affected by outages, and total sales alone are not a reliable predictor.
+
 ## Interesting Aggregates
 
 The grouped table by `NERC.REGION`, displaying the median `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` below, highlights significant regional differences in the severity of power outages. Regions like ECAR and HI experience the longest median outage durations and highest median demand losses, indicating greater vulnerability and more severe impacts during outages, which can guide energy companies and policymakers in prioritizing infrastructure improvements and emergency response efforts to mitigate these severe outages.
