@@ -57,14 +57,13 @@ Below is the head of the cleaned `power_outage` dataframe with relevant columns.
 # Exploratory Data Analysis
 ## Univariate Analysis
 
-The bar plot below shows the distribution of power outages during the day and night times. This distribution helps us understand whether outages are more likely to occur during certain times of the day.
+The bar plot below shows the distribution of power outages during the day and night times. This distribution helps us understand whether outages are more likely to occur during certain times of the day. 
 <iframe
   src="assets/outages-during-day-and-night.html"
   width="800"
   height="600"
   frameborder="0">
-</iframe>
-From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 outages at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
+</iframe> From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 outages at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
 
 <iframe
   src="assets/total-sales-per-year.html"
