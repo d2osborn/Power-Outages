@@ -73,8 +73,6 @@ The histogram below illustrates the distribution of total electricity sales reco
   frameborder="0"></iframe>
 The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate sales, while a few exhibit significantly higher sales. This suggests that occasional high consumption could correlate with major power outages, as increased demand strains the power grid. Understanding this distribution helps identify patterns that may influence outage severity and frequency.
 
-## Bivariate Analysis
-
 The bar plot below shows the count of power outage events for each month:
 <iframe
   src="assets/outages-per-month.html"
@@ -82,5 +80,7 @@ The bar plot below shows the count of power outage events for each month:
   height="600"
   frameborder="0"></iframe>
 The plot reveals that power outages are more frequent in the summer months, particularly in June and July, which may be due to increased electricity demand from air conditioning and summer storms. In contrast, the lowest number of outages occurs during Spring and Fall, suggesting lower overall demand and fewer severe weather events during this time.
+
+## Bivariate Analysis
 
 ## Interesting Aggregates
