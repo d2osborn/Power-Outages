@@ -73,6 +73,8 @@ The histogram below illustrates the distribution of total electricity sales reco
   frameborder="0"></iframe>
 The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate sales, while a few exhibit significantly higher sales. This suggests that occasional high consumption could correlate with major power outages, as increased demand strains the power grid. Understanding this distribution helps identify patterns that may influence outage severity and frequency.
 
+## Bivariate Analysis
+
 The bar plot below shows the count of power outage events for each month:
 <iframe
   src="assets/outages-per-month.html"
@@ -88,8 +90,6 @@ The choropleth map below displays the median outage duration per state based on 
   height="600"
   frameborder="0"></iframe>
 From the map, we observe significant variations in median outage duration across different states. States such as Michigan (MI), New York (NY), and West Virginia (WV) exhibit longer median outage durations, represented by darker shades, indicating that these states experience more prolonged outages on average. This visualization highlights the disparities in power outage experiences across the United States, suggesting areas where infrastructure improvements may be most needed to reduce the impact of power outages.
-
-## Bivariate Analysis
 
 ## Interesting Aggregates
 
