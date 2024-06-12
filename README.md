@@ -62,8 +62,7 @@ The bar plot below shows the distribution of power outages during the day and ni
   src="assets/outages-during-day-and-night.html"
   width="800"
   height="600"
-  frameborder="0">
-</iframe> 
+  frameborder="0"></iframe> 
 From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 incidents at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
 
 The histogram below illustrates the distribution of total electricity sales recorded in the dataset.
@@ -71,8 +70,7 @@ The histogram below illustrates the distribution of total electricity sales reco
   src="assets/distrib-of-total-sales.html"
   width="800"
   height="600"
-  frameborder="0">
-</iframe>
+  frameborder="0"></iframe>
 The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate sales, while a few exhibit significantly higher sales. This suggests that occasional high consumption could correlate with major power outages, as increased demand strains the power grid. Understanding this distribution helps identify patterns that may influence outage severity and frequency.
 <!-- <iframe
   src="assets/total-sales-per-year.html"
@@ -84,7 +82,15 @@ The histogram shows that total electricity sales are right-skewed, indicating th
   width="800"
   height="600"
   frameborder="0"></iframe> -->
-  
+
 ## Bivariate Analysis
+
+The bar plot below shows the count of power outage events for each month:
+<iframe
+  src="assets/outages-per-month.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+The plot reveals that power outages are more frequent in the summer months, particularly in June and July, which may be due to increased electricity demand from air conditioning and summer storms. In contrast, the lowest number of outages occurs during Spring and Fall, suggesting lower overall demand and fewer severe weather events during this time.
 
 ## Interesting Aggregates
