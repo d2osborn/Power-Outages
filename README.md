@@ -164,6 +164,73 @@ There are many columns in the dataset that contain missing values. However, one 
 
 ## Missingness Dependency
 
+In this part, I am going to test if the missingness of `TOTAL.SALES` depends on other columns. The two other columns that I used are `MONTH` and `NERC.REGION`. The significance level that I chose for both permutation tests is 0.05, and the test statistic if Total Variance Distance (TVD).
+
+First, I perform the permutation test on `TOTAL.SALES` and `MONTH`, and test to see if the missingness of `TOTAL.SALES` does depend on `MONTH`.
+
+Null Hypothesis: Distribution of `MONTH` when `TOTAL.SALES` is missing is the same as the distribution of `MONTH` when `TOTAL.SALES` is not missing.
+
+Alternative Hypothesis: Distribution of `MONTH` when `TOTAL.SALES` is missing is NOT the same as the distribution of `MONTH` when `TOTAL.SALES` is not missing.
+
+Below is the observed distribution of `MONTH` when `TOTAL.SALES` is missing and not missing.
+
+| MONTH | total_sales_missing = False | total_sales_missing = True |
+|-------|------------------------------|-----------------------------|
+| 1     | 0.0899471                    | nan                         |
+| 2     | 0.0899471                    | nan                         |
+| 3     | 0.0661376                    | nan                         |
+| 4     | 0.0734127                    | nan                         |
+| 5     | 0.0839947                    | nan                         |
+| 6     | 0.128968                     | nan                         |
+| 7     | 0.111111                     | 1                           |
+| 8     | 0.10119                      | nan                         |
+| 9     | 0.0621693                    | nan                         |
+| 10    | 0.0720899                    | nan                         |
+| 11    | 0.047619                     | nan                         |
+| 12    | 0.0734127                    | nan                         |
+
+After we performed permutation tests, we found that the observed statistic for this permutation test is: 0.4444444444444444, and the p-value is 0. The plot below shows the empirical distribution of the TVD for the test.
+<iframe
+  src="assets/tvd-month-sales.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+Since the p-value is less than the 0.05 significance level, we reject the null hypothesis. Therefore, the missingness of `TOTAL.SALES` does depend on `MONTH`.
+
+The second permutation test that we are performing is on `TOTAL.SALES` and `NERC.REGION`, and the missingness of `TOTAL.SALES` does not depend on `NERC.REGION`.
+
+Null Hypothesis: Distribution of `NERC.REGION` when `TOTAL.SALES` is missing is the same as the distribution of `NERC.REGION` when `TOTAL.SALES` is not missing.
+
+Alternative Hypothesis: Distribution of `NERC.REGION` when `TOTAL.SALES` is missing is NOT same as the distribution of `NERC.REGION` when `TOTAL.SALES` is not missing.
+
+Below is the observed distribution of `NERC.REGION` when `TOTAL.SALES` is missing and not missing.
+
+| NERC.REGION   | total_sales_missing = False | total_sales_missing = True |
+|:--------------|------------------------------|-----------------------------|
+| ASCC          | nan                          | 0.0454545                   |
+| ECAR          | 0.0224868                    | nan                         |
+| FRCC          | 0.0284392                    | 0.0454545                   |
+| FRCC, SERC    | 0.000661376                  | nan                         |
+| HECO          | 0.00198413                   | nan                         |
+| HI            | 0.000661376                  | nan                         |
+| MRO           | 0.0297619                    | 0.0454545                   |
+| NPCC          | 0.0992063                    | nan                         |
+| PR            | 0.000661376                  | nan                         |
+| RFC           | 0.274471                     | 0.181818                    |
+| SERC          | 0.130952                     | 0.318182                    |
+| SPP           | 0.0429894                    | 0.0909091                   |
+| TRE           | 0.0720899                    | 0.0909091                   |
+| WECC          | 0.295635                     | 0.181818                    |
+
+After we performed permutation tests, we found that the observed statistic for this permutation test is: 0.24657287157287155, and the p-value is 0.101. The plot below shows the empirical distribution of the TVD for the test.
+<iframe
+  src="assets/tvd-nerc-sales.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+
+Since the p-value is greater than the 0.05 significance level, we fail to reject the null hypothesis. Therefore, the missingness of `TOTAL.SALES` does NOT depend on `NERC.REGION`.
+
 # Hypothesis Testing
 
 # Framing a Prediction Problem
