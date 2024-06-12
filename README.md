@@ -42,7 +42,7 @@ I then replaced every 0 value in the columns `OUTAGE.DURATION`, `DEMAND.LOSS.MW`
 
 I then changed the data types of each column to ensure that each column has its correct respective data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types. To prevent errors from inconsistent null types after changing the data types of the columns, I replaced all null values with NumPy's NaN for consistency.
 
-I also added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime or nighttime. This column allows me to categorize outages to understand patterns such as when outages are more likely to occur.
+I also added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime (6 AM to 8 PM) or nighttime (8 PM to 6 AM). This column allows me to categorize outages to understand patterns such as when outages are more likely to occur.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
@@ -64,7 +64,7 @@ The bar plot below shows the distribution of power outages during the day and ni
   height="600"
   frameborder="0">
 </iframe> 
-From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 outages at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
+From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 incidents at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
 
 <iframe
   src="assets/total-sales-per-year.html"
