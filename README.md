@@ -197,8 +197,6 @@ After we performed permutation tests, we found that the observed statistic for t
   frameborder="0"></iframe>
 Since the p-value is less than the 0.05 significance level, we reject the null hypothesis. Therefore, the missingness of `TOTAL.SALES` does depend on `MONTH`.
 
-First, I perform the permutation test on `TOTAL.SALES` and `MONTH`, and test to see if the missingness of `TOTAL.SALES` does depend on `MONTH`.
-
 Second, I perform the permutation test on `TOTAL.SALES` and `NERC.REGION`, and the missingness of `TOTAL.SALES` does not depend on `NERC.REGION`.
 
 Null Hypothesis: Distribution of `NERC.REGION` when `TOTAL.SALES` is missing is the same as the distribution of `NERC.REGION` when `TOTAL.SALES` is not missing.
