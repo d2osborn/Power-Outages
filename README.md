@@ -93,7 +93,7 @@ From the map, we observe significant variations in median outage duration across
 
 ## Interesting Aggregates
 
-The grouped table by NERC.REGION, displaying the median `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED`, highlights significant regional differences in the severity of power outages. Regions like ECAR and HI experience the longest median outage durations and highest median demand losses, indicating greater vulnerability and more severe impacts during outages, which can guide energy companies and policymakers in prioritizing infrastructure improvements and emergency response efforts to mitigate these severe outages.
+The grouped table by `NERC.REGION`, displaying the median `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` below, highlights significant regional differences in the severity of power outages. Regions like ECAR and HI experience the longest median outage durations and highest median demand losses, indicating greater vulnerability and more severe impacts during outages, which can guide energy companies and policymakers in prioritizing infrastructure improvements and emergency response efforts to mitigate these severe outages.
 
 | NERC.REGION   |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |
 |:--------------|------------------:|-----------------:|---------------------:|
@@ -112,7 +112,7 @@ The grouped table by NERC.REGION, displaying the median `OUTAGE.DURATION`, `DEMA
 | TRE           |             1110  |              350 |               113247 |
 | WECC          |             248.5 |              220 |                84500 |
 
-The pivot table reveals that `OUTAGE.DURATION` varies significantly across `CLIMATE.REGION` and `CLIMATE.CATEGORY`, with regions like East North Central experiencing notably longer outages in colder and normal climates, while the Southwest shows much higher outage durations in warm climates. These insights help identify which climate conditions and regions are more prone to prolonged outages, guiding targeted strategies for improving power grid resilience.
+The pivot table below reveals that `OUTAGE.DURATION` varies significantly across `CLIMATE.REGION` and `CLIMATE.CATEGORY`, with regions like East North Central experiencing notably longer outages in colder and normal climates, while the Southwest shows much higher outage durations in warm climates. These insights help identify which climate conditions and regions are more prone to prolonged outages, guiding targeted strategies for improving power grid resilience.
 
 | CLIMATE.REGION     |      cold |    normal |      warm |
 |:-------------------|----------:|----------:|----------:|
