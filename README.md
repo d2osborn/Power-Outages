@@ -97,6 +97,8 @@ From the map, we observe significant variations in median outage duration across
 
 ## NMAR Analysis
 
+There are many columns in the dataset that contain missing values. However, one column that I believe is likely Not Missing At Random (NMAR) is `DEMAND.LOSS.MW`. This might be due to circumstances during particularly severe outages, where the peak demand loss may not be recorded accurately or at all because the personnel needed to record the data may be compromised or overwhelmed. Additionally, if the demand loss is very high or very low, it might be more likely to be left out due to reporting biases or difficulties. The absence of data in `DEMAND.LOSS.MW` is directly related to the severity or specifics of the power outage event, which means the missingness is tied to the values that this variable would take if they were observed. Additional data I'd want to obtain to make the missingness Missing At Random (MAR) would be information on the data collection practices during outages, such as protocols followed by utility companies, which can reveal if certain types of outages are less likely to have complete data.
+
 ## Missingness Dependency
 
 # Hypothesis Testing
