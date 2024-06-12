@@ -66,6 +66,14 @@ The bar plot below shows the distribution of power outages during the day and ni
 </iframe> 
 From the plot, we can see that the majority of power outages occur during the day, with 1124 incidents, compared to 410 incidents at night. This indicates that major power outages are more prevalent during daytime hours. This could be due to higher electricity consumption and greater strain on the power grid during the day when businesses and households are active.
 
+The histogram below illustrates the distribution of total electricity sales recorded in the dataset.
+<iframe
+  src="assets/distrib-of-total-sales.html"
+  width="800"
+  height="600"
+  frameborder="0">
+</iframe>
+The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate electricity sales, while a few records exhibit significantly higher sales. This suggests that while the typical electricity consumption is relatively moderate, there are certain instances where consumption is extremely high, possibly due to peak demand periods or larger consumption needs in specific states or during particular times.
 <iframe
   src="assets/total-sales-per-year.html"
   width="800"
