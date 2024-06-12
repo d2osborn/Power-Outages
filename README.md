@@ -81,27 +81,13 @@ The bar plot below shows the count of power outage events for each month:
   frameborder="0"></iframe>
 The plot reveals that power outages are more frequent in the summer months, particularly in June and July, which may be due to increased electricity demand from air conditioning and summer storms. In contrast, the lowest number of outages occurs during Spring and Fall, suggesting lower overall demand and fewer severe weather events during this time.
 
-The choropleth map below displays the total electricity sales per state based on the dataset provided.
-<html>
-<head>
-    <style>
-        .center {
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="center">
-        <iframe
-            src="assets/consumption-per-state.html"
-            width="800"
-            height="600"
-            frameborder="0">
-        </iframe>
-    </div>
-</body>
-</html>
-From the map, we observe significant variations in electricity sales across different states. States such as California (CA), Texas (TX), and New York (NY) exhibit higher electricity sales, represented by darker shades, while others have comparatively lower sales. This visualization highlights the disparities in electricity usage across the United States, influenced by factors such as population density, industrial activity, and climate.
+The choropleth map below displays the median outage duration per state based on the dataset provided.
+<iframe
+  src="assets/median-duration-per-state.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+From the map, we observe significant variations in median outage duration across different states. States such as Michigan (MI), New York (NY), and West Virginia (WV) exhibit longer median outage durations, represented by darker shades, indicating that these states experience more prolonged outages on average. This visualization highlights the disparities in power outage experiences across the United States, suggesting areas where infrastructure improvements may be most needed to reduce the impact of power outages.
 
 ## Bivariate Analysis
 
