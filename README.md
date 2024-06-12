@@ -126,6 +126,20 @@ The pivot table below reveals that `OUTAGE.DURATION` varies significantly across
 | West               |   1762.71 |   1264.71 |   2044.23 |
 | West North Central |    250    |     33.17 |   2486.5  |
 
+The pivot table below has the same paramaters as the table above, however, it represents a joint distribution of `OUTAGE.DURATION` between `CLIMATE.REGION` and `CLIMATE.CATEGORY`. The table shows that normal climates see the highest number of outages across most regions, with the Northeast, Central, and South being affected the most. This indicates that energy companies should focus on improving grid resilience in these regions and consider weather patterns and infrastructure quality as key risk factors for predicting and mitigating severe outages.
+
+| CLIMATE.REGION     |   cold |   normal |   warm |
+|:-------------------|-------:|---------:|-------:|
+| Central            |     60 |       94 |     25 |
+| East North Central |     38 |       81 |     17 |
+| Northeast          |    103 |      163 |     43 |
+| Northwest          |     36 |       41 |     25 |
+| South              |     55 |      108 |     53 |
+| Southeast          |     44 |       71 |     33 |
+| Southwest          |     20 |       43 |     22 |
+| West               |     63 |       84 |     57 |
+| West North Central |      4 |        6 |      4 |
+
 # Assessment of Missingness
 
 ## NMAR Analysis
