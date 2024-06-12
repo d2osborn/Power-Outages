@@ -73,20 +73,18 @@ The histogram below illustrates the distribution of total electricity sales reco
   height="600"
   frameborder="0">
 </iframe>
-The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate electricity sales, while a few records exhibit significantly higher sales. This suggests that while the typical electricity consumption is relatively moderate, there are certain instances where consumption is extremely high, possibly due to peak demand periods or larger consumption needs in specific states or during particular times.
-<iframe
+The histogram shows that total electricity sales are right-skewed, indicating that most records reflect lower to moderate sales, while a few exhibit significantly higher sales. This suggests that occasional high consumption could correlate with major power outages, as increased demand strains the power grid. Understanding this distribution helps identify patterns that may influence outage severity and frequency.
+<!-- <iframe
   src="assets/total-sales-per-year.html"
   width="800"
   height="600"
-  frameborder="0"
-></iframe>
+  frameborder="0"></iframe>
 <iframe
   src="assets/average-energy-consumption-per-state.html"
   width="800"
   height="600"
-  frameborder="0"
-></iframe>
-
+  frameborder="0"></iframe> -->
+  
 ## Bivariate Analysis
 
 ## Interesting Aggregates
