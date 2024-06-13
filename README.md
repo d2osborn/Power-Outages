@@ -233,17 +233,17 @@ Since the p-value is greater than the 0.05 significance level, we fail to reject
 
 # Hypothesis Testing
 
-In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that there is **a significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`**. In this case, different levels of `TOTAL.SALES` are High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important in understanding the relationship between electricity consumption and severity of power outages, as energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location for future power outage. I chose difference in group means as my test statistic instead of absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with longer or shorter outage durations compared to lower electricity consumption (low sales). 
+In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that there is **a significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`**. In this case, different levels of `TOTAL.SALES` are High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important in understanding the relationship between electricity consumption and severity of power outages, as energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location for future power outage. I chose difference in group means as my test statistic instead of absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with greater or lesser demand loss in megawatts compared to lower electricity consumption (low sales).
 
-**Null Hypothesis (H0)**: There is no significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`.
+**Null Hypothesis (H0)**: There is no significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`.
 
-**Alternative Hypothesis (H1)**: There is a significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`.
+**Alternative Hypothesis (H1)**: There is a significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`.
 
-**Test Statistic**: Difference in group means between `OUTAGE.DURATION` of high and low levels of `TOTAL.SALES`.
+**Test Statistic**: Difference in group means between `DEMAND.LOSS.MW` of high and low levels of `TOTAL.SALES`.
 
 **Significance Level**: 0.05
 
-After performing permutation tests with 10,000 simulations, I found that the **observed difference** is 246.114986537812 and the **p-value** is 0.2235. The plot below shows the empirical distribution of the TVD for the test.
+After performing permutation tests with 10,000 simulations, I found that the **observed difference** is 326.1661476961919 and the **p-value** is 0.047. The plot below shows the empirical distribution of the test statistic for the permutation test.
 <iframe
   src="assets/hypothesis-test.html"
   width="800"
@@ -251,9 +251,40 @@ After performing permutation tests with 10,000 simulations, I found that the **o
   frameborder="0"></iframe>
 
 ## Conclusion of Permutation Test
-Since the p-value I found (0.2235) is greater than the standard significance level of 0.05, I fail to reject the null hypothesis. This suggests that there is not a statistically significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`. In other words, I do not have enough evidence to conclude that the duration of power outages is influenced by the level of total electricity sales. The observed differences in outage duration between high sales and low sales areas could be due to random chance rather than a true underlying relationship. Therefore indicating that electricity consumption levels (as measured by total sales) may not be a strong predictor of outage duration.
+Since the p-value I found (0.047) is less than the standard significance level of 0.05, I reject the null hypothesis. This suggests that there is a statistically significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`. In other words, I have enough evidence to conclude that the demand loss during power outages is influenced by the level of total electricity sales. The observed difference in demand loss between high sales and low sales areas indicates a potential underlying relationship where electricity consumption levels (as measured by total sales) may be a significant predictor of demand loss during outages.
 
 # Framing a Prediction Problem
+
+My model will predict the energy consumption of an area. This will be a regression problem, as the goal is to predict a continuous variable, which is the electricity consumption in a given area. The response 
+
+This is a regression problem. The goal is to predict a continuous variable, which is the electricity consumption in a given area.
+
+
+
+##
+My model will try to predict the cause of a power outage. This will be a binary classification because we are only focusing on outages cause by severe weather or intentional attacks.
+
+The metric I am using the evaluate my model is the F1 score, because there is an imbalance within the classes so this will most effectively balance that out and incorporate both the precision and recall.
+
+At the time of prediction, we would know the state, NERC region, climate region, anomaly level, year, month, total sales, total price, total customers, and the urban factor. This information will allow us to predict what the cause of a major power outage is.
+##
+We plan to predict average rating of a recipe which would be a classification problem since we can treat rating as a ordinal categorical variable if we round the average rating so that we only have [1, 2, 3, 4, 5] as possible values. To address our prediction problem, we will build a multi-class classifier since our average ratings have 5 possible values that the model will predict from.
+
+We chose the average rating of a recipe as a response variable because it is a good representation of the overall rating of a recipe. We have also previously found significant correlation between rating and sugary recipes, which are recipes with proportion of sugar higher than the average proportion of sugar, so we may be able to predict the rating through the proportion of sugar.
+
+To evaluate our model, we will use the f1 score instead of accuracy, because the distribution for the ratings are heavily skewed left with most ratings concentrated in the higher ratings (4-5). This means that there are more recipes with higher average ratings. If we use accuracy, the model’s performance may be misleading due to the imbalanced classes.
+
+The information we have prior making our prediction are all the columns in the rating dataset, which are listed in the introduction section. All those columns are features relating to the recipes themselves, thus we would have access to it even though no one has made a rating and review on them.
+##
+
+To address this question, we can employ machine learning techniques such as classification algorithms. For our prediction model, we will focus on the jungle position only. Thus, at here, the model that we built are based on the following prediction problem: Are we able to predict if a player’s position is jungle or not based on their other game statistics?
+
+In this part, we will need to one-hot encode the original position column, and this will give us 5 binary columns representing each position: position_top, position_jng, position_mid, position_bot, position_sup. Since we are predicting based on individual performance, we decide to drop all the team summary rows, and keep only the player rows. Thus, this is a binary classfication model, and our responsive variable is position_jng. As we are only predicting if the given player is jungle or not, we can drop all other binary columns for position. Below is the head of DataFrame we are using in this section:
+
+To prevent overfitting, the data will be split into two parts: 75% training data, and 25% test data. In terms of model’evaluation, we will use both accuracy and F1-score. The reason we are using F1-score on top of accuracy is because the data we are working on is unbalanced. In the DataFrame, 20% of the player’s positions are jungle, and 80% of players are some other positions; the accuracy score alone won’t give us a representative evaluation of the model.
+
+At the time of prediction, we only know the following information for each player: kills, deaths, assists, firstbloodkill, monsterkills, and minionkills. These are all the statistics collected during the game. We will train our model based on the above features.
+
 
 # Baseline Model
 
