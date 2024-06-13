@@ -277,9 +277,11 @@ In the final model, I used the RandomForestRegressor algorithm and GridSearchCV 
 200 trees (n_estimators) and a maximum depth of 20 (max_depth)
  - 200 trees (n_estimators)
  - maximum depth of 20 (max_depth)
+
 In contrast, the baseline model employed a Linear Regression algorithm with default parameters and no hyperparameter tuning.
 
 The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES`, resulting in more precise predictions.
 
-
 # Fairness Analysis
+
+
