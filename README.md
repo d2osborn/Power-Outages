@@ -189,7 +189,7 @@ Below is the observed distribution of `MONTH` when `TOTAL.SALES` is missing and 
 | 11    | 0.047619                     | nan                         |
 | 12    | 0.0734127                    | nan                         |
 
-After we performed permutation tests, we found that the **observed statistic** for this permutation test is: 0.4444444444444444, and the **p-value** is 0. The plot below shows the empirical distribution of the TVD for the test.
+After I performed permutation tests, I found that the **observed statistic** for this permutation test is: 0.4444444444444444, and the **p-value** is 0. The plot below shows the empirical distribution of the TVD for the test.
 <iframe
   src="assets/tvd-month-sales.html"
   width="800"
@@ -233,7 +233,25 @@ Since the p-value is greater than the 0.05 significance level, we fail to reject
 
 # Hypothesis Testing
 
+In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that **there is a significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`**. In this case, different levels of `TOTAL.SALES` are High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important in understanding the relationship between electricity consumption and severity of power outages, as energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location for future power outage. I chose difference in group means as my test statistic instead of absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with longer or shorter outage durations compared to lower electricity consumption (low sales). 
 
+**Null Hypothesis (H0)**: There is no significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`.
+
+**Alternative Hypothesis (H1)**: There is a significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`.
+
+**Test Statistic**: Difference in group means between `OUTAGE.DURATION` of high and low levels of `TOTAL.SALES`.
+
+**Significance Level**: 0.05
+
+After I performed permutation tests with 10,000 simulations, I found that the **observed difference** is: 246.114986537812, and the **p-value** is 0.2235. The plot below shows the empirical distribution of the TVD for the test.
+<iframe
+  src="assets/hypothesis-test.html"
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
+
+## Conclusion of Permutation Test
+Since the p-value I found (0.2235) is greater than the standard significance level of 0.05, I fail to reject the null hypothesis. This suggests that there is not a statistically significant difference in the distribution of `OUTAGE.DURATION` across different levels of `TOTAL.SALES`. In other words, I do not have enough evidence to conclude that the duration of power outages is influenced by the level of total electricity sales. The observed differences in outage duration between high sales and low sales areas could be due to random chance rather than a true underlying relationship. Therefore indicating that electricity consumption levels (as measured by total sales) may not be a strong predictor of outage duration.
 
 # Framing a Prediction Problem
 
