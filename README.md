@@ -42,7 +42,9 @@ I then replaced every 0 value in the columns `OUTAGE.DURATION`, `DEMAND.LOSS.MW`
 
 I then changed the data types of each column to ensure that each column has its correct respective data type. This allows me to perform manipulations on the columns without encountering errors due to incorrect types. To prevent errors from inconsistent null types after changing the data types of the columns, I replaced all null values with NumPy's NaN for consistency.
 
-I also added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime (6 AM to 8 PM) or nighttime (8 PM to 6 AM). This column allows me to categorize outages to understand patterns such as when outages are more likely to occur. This column also accounts for NaN values from `OUTAGE.START` by also being null.
+I added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime (6 AM to 8 PM) or nighttime (8 PM to 6 AM). This column allows me to categorize outages to understand patterns such as when outages are more likely to occur. This column also accounts for NaN values from `OUTAGE.START` by also being null.
+
+I also dropped the columns `CAUSE.CATEGORY.DETAIL` and `HURRICANE.NAMES` because I deemed them irrelevant as they are categorical variables whose values hold no weight in my analysis.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
@@ -259,9 +261,11 @@ My model will predict the energy consumption of an area. This will be a regressi
 
 The metric I am using to evaluate the model is Mean Absolute Error (MAE) because it provides a clear interpretation of the average prediction error and is less sensitive to outliers compared to Mean Squared Error (MSE) and R<sup>2</sup>. 
 
-Only features known at the time of prediction, such as geographical location (state, region, urban percentage), timing (year, month, quarter, season), climatic conditions (temperature, precipitation, climate region), and economic attributes (GDP, population, industrial activity indicators), will be used to train the model. This ensures that the model's predictions are based on available and relevant information, avoiding data leakage and making the predictions practical and actionable for future resource management.
+Only features known at the time of prediction, such as geographical location (`U.S._STATE`, `NERC.REGION`, `PCT_WATER_INLAND`), timing (`YEAR`, `MONTH`), climatic conditions (`CLIMATE.REGION`), and economic attributes (`PC.REALGSP.STATE`, `POPULATION`, `IND.CUSTOMERS`), will be used to train the model.
 
 # Baseline Model
+
+
 
 # Final Model
 
