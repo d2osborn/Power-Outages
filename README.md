@@ -257,7 +257,7 @@ Since the p-value I found (0.047) is less than the standard significance level o
 
 My model will predict the energy consumption of an area. This will be a regression problem, as the goal is to predict a continuous variable, which is the electricity consumption in a given area. The response variable that I'm going to predict is `TOTAL.SALES`, which represents the total electricity consumption in an area measured in megawatt-hours (MWh). I chose this variable because it directly reflects the amount of electricity consumed, which is crucial for energy companies to plan for supply, distribution, and infrastructure needs. 
 
-The metric that I will be using to evaluate my model is 
+The metric I am using to evaluate the model is Mean Absolute Error (MAE) because it provides a clear interpretation of the average prediction error and is less sensitive to outliers compared to Mean Squared Error (MSE) and R<sup>2</sup>.
 
 This is a regression problem. The goal is to predict a continuous variable, which is the electricity consumption in a given area.
 
