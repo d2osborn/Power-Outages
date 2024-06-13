@@ -243,7 +243,7 @@ In the hypothesis test, I used a permutation test because I wanted to check whet
 
 **Significance Level**: 0.05
 
-After I performed permutation tests with 10,000 simulations, I found that the **observed difference** is: 246.114986537812, and the **p-value** is 0.2235. The plot below shows the empirical distribution of the TVD for the test.
+After I performed permutation tests with 10,000 simulations, I found that the **observed difference** is 246.114986537812 and the **p-value** is 0.2235. The plot below shows the empirical distribution of the TVD for the test.
 <iframe
   src="assets/hypothesis-test.html"
   width="800"
