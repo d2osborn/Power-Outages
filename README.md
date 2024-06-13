@@ -233,17 +233,17 @@ Since the p-value is greater than the 0.05 significance level, we fail to reject
 
 # Hypothesis Testing
 
-In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that there is **a significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`**. In this case, different levels of `TOTAL.SALES` are High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important in understanding the relationship between electricity consumption and severity of power outages, as energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location for future power outage. I chose difference in group means as my test statistic instead of absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with greater or lesser demand loss in megawatts compared to lower electricity consumption (low sales).
+In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that **higher electricity consumption (high sales) leads to higher demand loss in megawatts (MW) compared to lower electricity consumption (low sales)**. In this case, different levels of `TOTAL.SALES` are defined as High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important for understanding the relationship between electricity consumption and the severity of power outages. Energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location of future power outages. I chose the difference in group means as my test statistic instead of the absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with greater demand loss in megawatts compared to lower electricity consumption (low sales).
 
 **Null Hypothesis (H0)**: There is no significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`.
 
-**Alternative Hypothesis (H1)**: There is a significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`.
+**Alternative Hypothesis (H1)**: Higher levels of `TOTAL.SALES` are associated with greater `DEMAND.LOSS.MW`.
 
 **Test Statistic**: Difference in group means between `DEMAND.LOSS.MW` of high and low levels of `TOTAL.SALES`.
 
-**Significance Level**: 0.05
+**Significance Level**: Standard 0.05
 
-After performing permutation tests with 10,000 simulations, I found that the **observed difference** is 326.1661476961919 and the **p-value** is 0.047. The plot below shows the empirical distribution of the test statistic for the permutation test.
+After performing permutation tests with 10,000 simulations, I found that the **observed difference** is 326.1661476961919 and the **p-value** is 0.0455. The plot below shows the empirical distribution of the test statistic for the permutation test.
 <iframe
   src="assets/hypothesis-test.html"
   width="800"
@@ -251,15 +251,15 @@ After performing permutation tests with 10,000 simulations, I found that the **o
   frameborder="0"></iframe>
 
 ## Conclusion of Permutation Test
-Since the p-value I found (0.047) is less than the standard significance level of 0.05, I reject the null hypothesis. This suggests that there is a statistically significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`. In other words, I have enough evidence to conclude that the demand loss during power outages is influenced by the level of total electricity sales. The observed difference in demand loss between high sales and low sales areas indicates a potential underlying relationship where electricity consumption levels (as measured by total sales) may be a significant predictor of demand loss during outages.
+Since the p-value I found (0.0455) is less than the standard significance level of 0.05, I reject the null hypothesis. This suggests that there is a statistically significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`. In other words, the evidence indicates that the demand loss during power outages tends to be associated with the level of total electricity sales. The observed difference in demand loss between high sales and low sales areas suggests a potential relationship where higher electricity consumption levels (as measured by total sales) might be related to greater demand loss during outages. This finding implies that electricity consumption levels could be a relevant factor when predicting the severity of power outages.
 
 # Framing a Prediction Problem
 
 My model will predict the energy consumption of an area. This will be a regression problem, as the goal is to predict a continuous variable, which is the electricity consumption in a given area. The response variable that I'm going to predict is `TOTAL.SALES`, which represents the total electricity consumption in an area measured in megawatt-hours (MWh). I chose this variable because it directly reflects the amount of electricity consumed, which is crucial for energy companies to plan for supply, distribution, and infrastructure needs. 
 
-The metric I am using to evaluate the model is Mean Absolute Error (MAE) because it provides a clear interpretation of the average prediction error and is less sensitive to outliers compared to Mean Squared Error (MSE) and R<sup>2</sup>.
+The metric I am using to evaluate the model is Mean Absolute Error (MAE) because it provides a clear interpretation of the average prediction error and is less sensitive to outliers compared to Mean Squared Error (MSE) and R<sup>2</sup>. 
 
-This is a regression problem. The goal is to predict a continuous variable, which is the electricity consumption in a given area.
+Only features known at the time of prediction, such as geographical location (state, region, urban percentage), timing (year, month, quarter, season), climatic conditions (temperature, precipitation, climate region), and economic attributes (GDP, population, industrial activity indicators), will be used to train the model. This ensures that the model's predictions are based on available and relevant information, avoiding data leakage and making the predictions practical and actionable for future resource management.
 
 # Baseline Model
 
