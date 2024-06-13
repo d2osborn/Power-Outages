@@ -259,33 +259,6 @@ My model will predict the energy consumption of an area. This will be a regressi
 
 This is a regression problem. The goal is to predict a continuous variable, which is the electricity consumption in a given area.
 
-
-
-##
-My model will try to predict the cause of a power outage. This will be a binary classification because we are only focusing on outages cause by severe weather or intentional attacks.
-
-The metric I am using the evaluate my model is the F1 score, because there is an imbalance within the classes so this will most effectively balance that out and incorporate both the precision and recall.
-
-At the time of prediction, we would know the state, NERC region, climate region, anomaly level, year, month, total sales, total price, total customers, and the urban factor. This information will allow us to predict what the cause of a major power outage is.
-##
-We plan to predict average rating of a recipe which would be a classification problem since we can treat rating as a ordinal categorical variable if we round the average rating so that we only have [1, 2, 3, 4, 5] as possible values. To address our prediction problem, we will build a multi-class classifier since our average ratings have 5 possible values that the model will predict from.
-
-We chose the average rating of a recipe as a response variable because it is a good representation of the overall rating of a recipe. We have also previously found significant correlation between rating and sugary recipes, which are recipes with proportion of sugar higher than the average proportion of sugar, so we may be able to predict the rating through the proportion of sugar.
-
-To evaluate our model, we will use the f1 score instead of accuracy, because the distribution for the ratings are heavily skewed left with most ratings concentrated in the higher ratings (4-5). This means that there are more recipes with higher average ratings. If we use accuracy, the model’s performance may be misleading due to the imbalanced classes.
-
-The information we have prior making our prediction are all the columns in the rating dataset, which are listed in the introduction section. All those columns are features relating to the recipes themselves, thus we would have access to it even though no one has made a rating and review on them.
-##
-
-To address this question, we can employ machine learning techniques such as classification algorithms. For our prediction model, we will focus on the jungle position only. Thus, at here, the model that we built are based on the following prediction problem: Are we able to predict if a player’s position is jungle or not based on their other game statistics?
-
-In this part, we will need to one-hot encode the original position column, and this will give us 5 binary columns representing each position: position_top, position_jng, position_mid, position_bot, position_sup. Since we are predicting based on individual performance, we decide to drop all the team summary rows, and keep only the player rows. Thus, this is a binary classfication model, and our responsive variable is position_jng. As we are only predicting if the given player is jungle or not, we can drop all other binary columns for position. Below is the head of DataFrame we are using in this section:
-
-To prevent overfitting, the data will be split into two parts: 75% training data, and 25% test data. In terms of model’evaluation, we will use both accuracy and F1-score. The reason we are using F1-score on top of accuracy is because the data we are working on is unbalanced. In the DataFrame, 20% of the player’s positions are jungle, and 80% of players are some other positions; the accuracy score alone won’t give us a representative evaluation of the model.
-
-At the time of prediction, we only know the following information for each player: kills, deaths, assists, firstbloodkill, monsterkills, and minionkills. These are all the statistics collected during the game. We will train our model based on the above features.
-
-
 # Baseline Model
 
 # Final Model
