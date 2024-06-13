@@ -44,7 +44,9 @@ I then changed the data types of each column to ensure that each column has its 
 
 I added a new column `IS_DARK`, which represents whether or not the outage occured during the daytime (6 AM to 8 PM) or nighttime (8 PM to 6 AM). This column allows me to categorize outages to understand patterns such as when outages are more likely to occur. This column also accounts for NaN values from `OUTAGE.START` by also being null.
 
-I also dropped the columns `CAUSE.CATEGORY.DETAIL` and `HURRICANE.NAMES` because I deemed them irrelevant as they are categorical variables whose values hold no weight in my analysis.
+I dropped the columns `CAUSE.CATEGORY.DETAIL` and `HURRICANE.NAMES` because I deemed them irrelevant as they are categorical variables whose values hold no weight in my analysis.
+
+I also filtered the dataset to exclude rows from Alaska and Hawaii because the dataset is meant to represent data from the continental USA. Additionally, there were too many missing values in the record of the outage event for these rows, so it was better to exclude them completely.
 
 Below is the head of the cleaned `power_outage` dataframe with relevant columns.
   
@@ -235,7 +237,7 @@ Since the p-value is greater than the 0.05 significance level, we fail to reject
 
 # Hypothesis Testing
 
-In the hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that **higher electricity consumption (high sales) leads to higher demand loss in megawatts (MW) compared to lower electricity consumption (low sales)**. In this case, different levels of `TOTAL.SALES` are defined as High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important for understanding the relationship between electricity consumption and the severity of power outages. Energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location of future power outages. I chose the difference in group means as my test statistic instead of the absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with greater demand loss in megawatts compared to lower electricity consumption (low sales).
+In my hypothesis test, I used a permutation test because I wanted to check whether the two distributions look like they were drawn from the same population distribution. In my test, I proposed that **higher electricity consumption (high sales) leads to higher demand loss in megawatts (MW) compared to lower electricity consumption (low sales)**. In this case, different levels of `TOTAL.SALES` are defined as High Sales (>= `TOTAL.SALES`.median()) and Low Sales (< `TOTAL.SALES`.median()). This investigation is important for understanding the relationship between electricity consumption and the severity of power outages. Energy companies could then consider electricity consumption levels as a risk factor when predicting the severity and location of future power outages. I chose the difference in group means as my test statistic instead of the absolute difference in group means because I am interested in the direction of the relationship. Specifically, I want to determine if higher electricity consumption (high sales) is associated with greater demand loss in megawatts compared to lower electricity consumption (low sales).
 
 **Null Hypothesis (H0)**: There is no significant difference in the distribution of `DEMAND.LOSS.MW` across different levels of `TOTAL.SALES`.
 
@@ -259,13 +261,13 @@ Since the p-value I found (0.0455) is less than the standard significance level 
 
 My model will predict the energy consumption of an area. This will be a regression problem, as the goal is to predict a continuous variable, which is the electricity consumption in a given area. The response variable that I'm going to predict is `TOTAL.SALES`, which represents the total electricity consumption in an area measured in megawatt-hours (MWh). I chose this variable because it directly reflects the amount of electricity consumed, which is crucial for energy companies to plan for supply, distribution, and infrastructure needs. 
 
-The metric I am using to evaluate the model is Mean Absolute Error (MAE) because it provides a clear interpretation of the average prediction error and is less sensitive to outliers compared to Mean Squared Error (MSE) and R<sup>2</sup>. 
+The metric I am using to evaluate the model is R-squared (R<sup>2</sup>) because it provides an indication of how well the model fits the data. R<sup>2</sup> measures the proportion of the variance in the dependent variable that is predictable from the independent variables. A higher R<sup>2</sup> indicates a better fit of the model to the data.
 
-Only features known at the time of prediction, such as geographical location (`U.S._STATE`, `NERC.REGION`, `PCT_WATER_INLAND`), timing (`YEAR`, `MONTH`), climatic conditions (`CLIMATE.REGION`), and economic attributes (`PC.REALGSP.STATE`, `POPULATION`, `IND.CUSTOMERS`), will be used to train the model.
+At the time of prediction, we would know geographical locations (`POSTAL.CODE`, `NERC.REGION`, `PCT_WATER_INLAND`, `AREAPCT_URBAN`), timage (`YEAR`, `MONTH`, `IS_DARK`), climate (`CLIMATE.REGION`), and economic attributes (`PC.REALGSP.STATE`, `POPULATION`, `IND.CUSTOMERS`). This information will allow us to predict the energy consumption of a given area.
 
 # Baseline Model
 
-
+My model is a linear regression model using the features `CLIMATE.REGION` (NOMINAL), `NERC.REGION` (NOMINAL), `POPULATION` (QUANTITATIVE), `PCT_WATER_INLAND` (QUANTITATIVE), `POSTAL.CODE` (NOMINAL) to predict the energy consumption of an area. To prepare the data for modeling, we performed the following steps: Standardized the quantitative features (`POPULATION`, `PCT_WATER_INLAND`) using StandardScaler to normalize the data, ensuring all features have a mean of 0 and a standard deviation of 1, and Applied one-hot encoding to the nominal features (`CLIMATE.REGION`, `NERC.REGION`, `POSTAL.CODE`) using OneHotEncoder to convert categorical variables into a format suitable for regression by creating binary columns for each category. After training the model, I evaluated its performance using the R-squared (R<sup>2</sup>2) metric. The result was R-squared (R<sup>2</sup>2): 0.8786. Given the high R-squared value, we can consider my current model to be "good". It captures a significant portion of the variance in the target variable (`TOTAL.SALES`).
 
 # Final Model
 
