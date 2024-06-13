@@ -273,9 +273,10 @@ My model is a linear regression model using the features `YEAR` (ORDINAL), `MONT
 
 For the final model, I incorporated two additional features: POP.DENSITY.URBAN (Population Density in Urban Areas) and AVG.MONTHLY.PRICE (Average Monthly Electricity Price). I added `POP.DENSITY.URBAN` because urban areas with higher population densities typically experience heightened residential and commercial activity, directly impacting electricity demand. I also added `AVG.MONTHLY.PRICE` because it offers insights into consumption behavior, revealing the price sensitivity of demand and how fluctuations in electricity prices influence overall sales.
 
-In the final model, I used the RandomForestRegressor algorithm, so by using GridSearchCV with 5-fold cross-validation, the goal was to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
- - number of trees in the forest (n_estimators) set to 100 and 200
- - maximum depth of the tree (max_depth) set to 10, 20, and None
+In the final model, I used the RandomForestRegressor algorithm and GridSearchCV with 5-fold cross-validation to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
+200 trees (n_estimators) and a maximum depth of 20 (max_depth)
+ - 200 trees (n_estimators)
+ - maximum depth of 20 (max_depth)
 In contrast, the baseline model employed a Linear Regression algorithm with default parameters and no hyperparameter tuning.
 
 The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES`, resulting in more precise predictions.
