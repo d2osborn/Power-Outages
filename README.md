@@ -273,8 +273,7 @@ My model is a linear regression model using the features `YEAR` (ORDINAL), `MONT
 
 For the final model, I incorporated two additional features: POP.DENSITY.URBAN (Population Density in Urban Areas) and AVG.MONTHLY.PRICE (Average Monthly Electricity Price). I added `POP.DENSITY.URBAN` because urban areas with higher population densities typically experience heightened residential and commercial activity, directly impacting electricity demand. I also added `AVG.MONTHLY.PRICE` because it offers insights into consumption behavior, revealing the price sensitivity of demand and how fluctuations in electricity prices influence overall sales.
 
-In the final model, I used the RandomForestRegressor algorithm and GridSearchCV with 5-fold cross-validation to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
-200 trees (n_estimators) and a maximum depth of 20 (max_depth)
+I used the RandomForestRegressor algorithm and GridSearchCV with 5-fold cross-validation to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
  - 200 trees (n_estimators)
  - maximum depth of 20 (max_depth)
 
@@ -284,14 +283,30 @@ The final model significantly improved compared to the baseline model by adding 
 
 # Fairness Analysis
 
+My groups for the fairness anal
+
 To perform a fairness analysis of your final model, we'll compare its performance across two groups. In this case, let's define the groups based on the REGION attribute: "Urban" and "Rural" areas. We'll use R-squared (R<sup>2</sup>) as our evaluation metric since your task involves regression.
 
 **Null Hypothesis**: The model is fair. Its (R<sup>2</sup>) score for Urban and Rural areas are roughly the same, and any differences are due to random chance.
 
 **Alternative Hypothesis**: The model is unfair. Its (R<sup>2</sup>) score for Urban areas is different from its (R<sup>2</sup>) score for Rural areas.
 
+1) Compute the actual difference in (R<sup>2</sup>) scores between the Urban and Rural groups using the final fitted model.
+2) Permute the REGION labels multiple times and compute the difference in (R<sup>2</sup>) scores for each permutation.
+3) Compare the actual difference to the distribution of differences from the permutations to determine the p-value.
 
+My groups for the fairness analysis are longer vs shorter outages. This is defined as outages that are greater than 3000 minutes, vs outages that are less than 3000 minutes.
 
+I decided on these groups because the cause category (which is predicted by my model) can greatly determine the outage duration. We want to make sure that the model can predict the classification well because this can inform energy companies on what to focus on to prevent longer outages.
 
+My evaluation metric will be F1 score since the classes (longer vs shorter) are imbalanced, and this metric accounts for that imbalance, while also incorporating the precision and recall. I will use permutation tests to calculate the F1 score for longer vs shorter outages (that are randomly shuffled) and then compare this absolute difference to my initial observed absolute difference.
+
+Null Hypothesis: The model is fair. Its F1 scores for longer and shorter outages are roughly the same, and any differences are due to random chance.
+
+Alternative Hypothesis: The model is unfair. Its F1 score for longer outages is significantly different from the F1 score for shorter outages.
+
+I performed a permutation test with 10000 trials. My significance level is the standard 0.05, and I got a p_value of 0.0 so because this is below the significance level, I reject the null hypothesis. The model is significantly different in terms of F1 score for longer vs shorter outages.
+
+The figure below shows the distribution of the statistic.
 
 
