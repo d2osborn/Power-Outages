@@ -284,4 +284,14 @@ The final model significantly improved compared to the baseline model by adding 
 
 # Fairness Analysis
 
+To perform a fairness analysis of your final model, we'll compare its performance across two groups. In this case, let's define the groups based on the REGION attribute: "Urban" and "Rural" areas. We'll use R-squared (R<sup>2</sup>) as our evaluation metric since your task involves regression.
+
+**Null Hypothesis**: The model is fair. Its (R<sup>2</sup>) score for Urban and Rural areas are roughly the same, and any differences are due to random chance.
+
+**Alternative Hypothesis**: The model is unfair. Its (R<sup>2</sup>) score for Urban areas is different from its (R<sup>2</sup>) score for Rural areas.
+
+
+
+
+
 
