@@ -267,8 +267,10 @@ At the time of prediction, we would know geographical locations (`POSTAL.CODE`, 
 
 # Baseline Model
 
-My model is a linear regression model using the features `CLIMATE.REGION` (NOMINAL), `NERC.REGION` (NOMINAL), `POPULATION` (QUANTITATIVE), `PCT_WATER_INLAND` (QUANTITATIVE), `POSTAL.CODE` (NOMINAL) to predict the energy consumption of an area. To prepare the data for modeling, we performed the following steps: Standardized the quantitative features (`POPULATION`, `PCT_WATER_INLAND`) using StandardScaler to normalize the data, ensuring all features have a mean of 0 and a standard deviation of 1, and Applied one-hot encoding to the nominal features (`CLIMATE.REGION`, `NERC.REGION`, `POSTAL.CODE`) using OneHotEncoder to convert categorical variables into a format suitable for regression by creating binary columns for each category. After training the model, I evaluated its performance using the R-squared (R<sup>2</sup>) metric. The result was R-squared (R<sup>2</sup>): 0.8786. Given the high R-squared value, we can consider my current model to be "good". It captures a significant portion of the variance in the target variable (`TOTAL.SALES`).
+My model is a linear regression model using the features `YEAR` (ORDINAL), `MONTH` (ORDINAL), `CLIMATE.REGION` (NOMINAL), `PC.REALGSP.STATE` (QUANTITATIVE), `NERC.REGION` (NOMINAL), `POPULATION` (QUANTITATIVE), `PCT_WATER_INLAND` (QUANTITATIVE), `POSTAL.CODE` (NOMINAL) to predict the energy consumption of an area. To prepare the data for modeling, we performed the following steps: Standardized the quantitative features (`PC.REALGSP.STATE`, `POPULATION`, `PCT_WATER_INLAND`) using StandardScaler to normalize the data, ensuring all features have a mean of 0 and a standard deviation of 1, and Applied one-hot encoding to the nominal features (`CLIMATE.REGION`, `NERC.REGION`, `POSTAL.CODE`) using OneHotEncoder to convert categorical variables into a format suitable for regression by creating binary columns for each category. After training the model, I evaluated its performance using the R-squared (R<sup>2</sup>) metric. The result was R-squared (R<sup>2</sup>): 0.8774. Given the high R-squared value, we can consider my current model to be "good". It captures a significant portion of the variance in the target variable (`TOTAL.SALES`).
 
 # Final Model
+
+
 
 # Fairness Analysis
