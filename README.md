@@ -282,7 +282,7 @@ In contrast, the baseline model employed a Linear Regression algorithm with defa
 The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES`, resulting in more precise predictions.
 
 # Fairness Analysis
-
+<!-- 
 My groups for the fairness anal
 
 To perform a fairness analysis of your final model, we'll compare its performance across two groups. In this case, let's define the groups based on the REGION attribute: "Urban" and "Rural" areas. We'll use R-squared (R<sup>2</sup>) as our evaluation metric since your task involves regression.
@@ -307,6 +307,6 @@ Alternative Hypothesis: The model is unfair. Its F1 score for longer outages is 
 
 I performed a permutation test with 10000 trials. My significance level is the standard 0.05, and I got a p_value of 0.0 so because this is below the significance level, I reject the null hypothesis. The model is significantly different in terms of F1 score for longer vs shorter outages.
 
-The figure below shows the distribution of the statistic.
+The figure below shows the distribution of the statistic. -->
 
 
