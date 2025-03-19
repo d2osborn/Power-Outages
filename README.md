@@ -267,19 +267,25 @@ At the time of prediction, we would know geographical locations (`POSTAL.CODE`, 
 
 # Baseline Model
 
-My model is a linear regression model using the features `YEAR` (ORDINAL), `MONTH` (ORDINAL), `CLIMATE.REGION` (NOMINAL), `PC.REALGSP.STATE` (QUANTITATIVE), `NERC.REGION` (NOMINAL), `POPULATION` (QUANTITATIVE), `PCT_WATER_INLAND` (QUANTITATIVE), `POSTAL.CODE` (NOMINAL) to predict the energy consumption of an area. To prepare the data for modeling, we performed the following steps: Standardized the quantitative features (`PC.REALGSP.STATE`, `POPULATION`, `PCT_WATER_INLAND`) using StandardScaler to normalize the data, ensuring all features have a mean of 0 and a standard deviation of 1, and Applied one-hot encoding to the nominal features (`CLIMATE.REGION`, `NERC.REGION`, `POSTAL.CODE`) using OneHotEncoder to convert categorical variables into a format suitable for regression by creating binary columns for each category. After training the model, I evaluated its performance using the R-squared (R<sup>2</sup>) metric. The result was R-squared (R<sup>2</sup>): 0.8774. Given the high R-squared value, we can consider my current model to be "good". It captures a significant portion of the variance in the target variable (`TOTAL.SALES`).
+My model is a linear regression model using the features `YEAR` (ORDINAL), `MONTH` (ORDINAL), `CLIMATE.REGION` (NOMINAL), `PC.REALGSP.STATE` (QUANTITATIVE), `NERC.REGION` (NOMINAL), `POPULATION` (QUANTITATIVE), `PCT_WATER_INLAND` (QUANTITATIVE), `POSTAL.CODE` (NOMINAL) to predict the energy consumption of an area. To prepare the data for modeling, we performed the following steps: Standardized the quantitative features (`PC.REALGSP.STATE`, `POPULATION`, `PCT_WATER_INLAND`) using StandardScaler to normalize the data, ensuring all features have a mean of 0 and a standard deviation of 1, and Applied one-hot encoding to the nominal features (`CLIMATE.REGION`, `NERC.REGION`, `POSTAL.CODE`) using OneHotEncoder to convert categorical variables into a format suitable for regression by creating binary columns for each category. After training the model, I evaluated its performance using the R-squared (R<sup>2</sup>) metric and RMSE metric. The result was R-squared (R<sup>2</sup>): 0.8774 and an RMSE of approximately 2343285.3, which is a 20.14% relative error based on `TOTAL.SALES`'s mean. Given the high R-squared value, we can see that the features explain a good amount of the variance in `TOTAL.SALES`, however, the high relative error in RMSE, means we can improve on this model.
 
 # Final Model
 
-For the final model, I incorporated two additional features: POP.DENSITY.URBAN (Population Density in Urban Areas) and AVG.MONTHLY.PRICE (Average Monthly Electricity Price). I added `POP.DENSITY.URBAN` because urban areas with higher population densities typically experience heightened residential and commercial activity, directly impacting electricity demand. I also added `AVG.MONTHLY.PRICE` because it offers insights into consumption behavior, revealing the price sensitivity of demand and how fluctuations in electricity prices influence overall sales.
+For the final model, I incorporated two additional features: `POP.DENSITY.URBAN` (Population Density in Urban Areas) and `AVG.MONTHLY.PRICE` (Average Monthly Electricity Price). I added `POP.DENSITY.URBAN` because urban areas with higher population densities typically experience heightened residential and commercial activity, directly impacting electricity demand. I also added `AVG.MONTHLY.PRICE` because it offers insights into consumption behavior, revealing the price sensitivity of demand and how fluctuations in electricity prices influence overall sales.
 
-I used the RandomForestRegressor algorithm and GridSearchCV with 5-fold cross-validation to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
+I used the RandomForestRegressor model and GridSearchCV with 5-fold cross-validation to find the optimal RandomForestRegressor model configuration that maximizes the R-squared score. The hyperparameters that I ended up using were
  - 200 trees (n_estimators)
  - maximum depth of 20 (max_depth)
 
-In contrast, the baseline model employed a Linear Regression algorithm with default parameters and no hyperparameter tuning.
+In contrast, the baseline model employed a Linear Regression model with default parameters and no hyperparameter tuning.
 
-The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES`, resulting in more precise predictions.
+The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926, and reduced RMSE by 73.2% to 622,847.10 MWh. Given the scale of `TOTAL.SALES` (around 11.63 million MWh on average), a 5.4% relative error is quite reasonable. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES` and captures more of the complex relationships in the data much better than the baseline model, resulting in more precise predictions.
+
+# Takeaways
+
+I could've tried more complex regression models e.g., boosting models, 
+
+
 
 <!-- 
 # Fairness Analysis
