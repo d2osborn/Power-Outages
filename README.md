@@ -283,7 +283,7 @@ The final model significantly improved compared to the baseline model by adding 
 
 # Takeaways
 
-I could've tried more complex regression models e.g., boosting models, 
+...
 
 
 
