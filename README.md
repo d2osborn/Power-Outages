@@ -281,38 +281,4 @@ In contrast, the baseline model employed a Linear Regression model with default 
 
 The final model significantly improved compared to the baseline model by adding relevant features `POP.DENSITY.URBAN` and `AVG.MONTHLY.PRICE`, using a better modeling fit (RandomForestRegressor), and optimized hyperparameters. This led to a more accurate prediction, evidenced by a higher R-squared (R<sup>2</sup>) value as the final model got a R-squared (R<sup>2</sup>) value of 0.9926, and reduced RMSE by 73.2% to 622,847.10 MWh. Given the scale of `TOTAL.SALES` (around 11.63 million MWh on average), a 5.4% relative error is quite reasonable. These improvements indicate that the final model captures a greater portion of the variance in `TOTAL.SALES` and captures more of the complex relationships in the data much better than the baseline model, resulting in more precise predictions.
 
-# Takeaways
-
-...
-
-
-
-<!-- 
-# Fairness Analysis
-My groups for the fairness anal
-
-To perform a fairness analysis of your final model, we'll compare its performance across two groups. In this case, let's define the groups based on the REGION attribute: "Urban" and "Rural" areas. We'll use R-squared (R<sup>2</sup>) as our evaluation metric since your task involves regression.
-
-**Null Hypothesis**: The model is fair. Its (R<sup>2</sup>) score for Urban and Rural areas are roughly the same, and any differences are due to random chance.
-
-**Alternative Hypothesis**: The model is unfair. Its (R<sup>2</sup>) score for Urban areas is different from its (R<sup>2</sup>) score for Rural areas.
-
-1) Compute the actual difference in (R<sup>2</sup>) scores between the Urban and Rural groups using the final fitted model.
-2) Permute the REGION labels multiple times and compute the difference in (R<sup>2</sup>) scores for each permutation.
-3) Compare the actual difference to the distribution of differences from the permutations to determine the p-value.
-
-My groups for the fairness analysis are longer vs shorter outages. This is defined as outages that are greater than 3000 minutes, vs outages that are less than 3000 minutes.
-
-I decided on these groups because the cause category (which is predicted by my model) can greatly determine the outage duration. We want to make sure that the model can predict the classification well because this can inform energy companies on what to focus on to prevent longer outages.
-
-My evaluation metric will be F1 score since the classes (longer vs shorter) are imbalanced, and this metric accounts for that imbalance, while also incorporating the precision and recall. I will use permutation tests to calculate the F1 score for longer vs shorter outages (that are randomly shuffled) and then compare this absolute difference to my initial observed absolute difference.
-
-Null Hypothesis: The model is fair. Its F1 scores for longer and shorter outages are roughly the same, and any differences are due to random chance.
-
-Alternative Hypothesis: The model is unfair. Its F1 score for longer outages is significantly different from the F1 score for shorter outages.
-
-I performed a permutation test with 10000 trials. My significance level is the standard 0.05, and I got a p_value of 0.0 so because this is below the significance level, I reject the null hypothesis. The model is significantly different in terms of F1 score for longer vs shorter outages.
-
-The figure below shows the distribution of the statistic. -->
-
 
